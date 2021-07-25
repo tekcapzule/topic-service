@@ -1,4 +1,4 @@
-service: capsule-service
+service: topic-service
 package:
   version: 0.0.1-SNAPSHOT
   artifact: ./application/target/${self:service}-${self:package.version}-${self:provider}.jar
@@ -21,7 +21,7 @@ functions:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
-          path: capsule/create
+          path: topic/create
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: createFunction
@@ -29,7 +29,7 @@ functions:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
-          path: capsule/update
+          path: topic/update
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: updateFunction
@@ -37,7 +37,7 @@ functions:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
-          path: capsule/disable
+          path: topic/disable
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: disableFunction
@@ -45,7 +45,7 @@ functions:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
-          path: capsule/searchById
+          path: topic/searchById
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: getFunction
@@ -53,7 +53,7 @@ functions:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
-          path: capsule/search
+          path: topic/search
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: searchFunction
@@ -63,7 +63,7 @@ resources:
     productsTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: Capsule
+        TableName: Topic
         AttributeDefinitions:
           - AttributeName: tenantId
             AttributeType: S
