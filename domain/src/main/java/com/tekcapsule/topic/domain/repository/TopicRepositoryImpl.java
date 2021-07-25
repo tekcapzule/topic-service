@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Repository
-public class CapsuleRepositoryImpl implements CapsuleDynamoRepository {
+public class TopicRepositoryImpl implements TopicDynamoRepository {
 
     private DynamoDBMapper dynamo;
 
     @Autowired
-    public CapsuleRepositoryImpl(DynamoDBMapper dynamo) {
+    public TopicRepositoryImpl(DynamoDBMapper dynamo) {
         this.dynamo = dynamo;
     }
 

@@ -9,7 +9,7 @@ import com.tekcapsule.topic.domain.model.Mentor;
 
 import java.util.List;
 
-public interface CapsuleService {
+public interface TopicService {
 
     Mentor create(CreateCommand createCommand);
 

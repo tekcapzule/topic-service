@@ -7,7 +7,7 @@ import com.tekcapsule.topic.domain.model.DateOfBirth;
 import com.tekcapsule.topic.domain.model.Name;
 import com.tekcapsule.topic.domain.query.SearchItem;
 import com.tekcapsule.topic.domain.query.SearchQuery;
-import com.tekcapsule.topic.domain.repository.CapsuleDynamoRepository;
+import com.tekcapsule.topic.domain.repository.TopicDynamoRepository;
 import com.tekcapsule.topic.domain.model.Mentor;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
@@ -19,11 +19,11 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class CapsuleServiceImpl implements CapsuleService {
-    private CapsuleDynamoRepository mentorRepository;
+public class TopicServiceImpl implements TopicService {
+    private TopicDynamoRepository mentorRepository;
 
     @Autowired
-    public CapsuleServiceImpl(CapsuleDynamoRepository mentorRepository) {
+    public TopicServiceImpl(TopicDynamoRepository mentorRepository) {
         this.mentorRepository = mentorRepository;
     }
 
