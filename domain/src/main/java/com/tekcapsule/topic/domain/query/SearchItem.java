@@ -2,8 +2,6 @@ package com.tekcapsule.topic.domain.query;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import in.devstream.core.domain.ValueObject;
-import com.tekcapsule.topic.domain.model.Name;
-import com.tekcapsule.topic.domain.model.Social;
 import lombok.Builder;
 import lombok.Data;
 

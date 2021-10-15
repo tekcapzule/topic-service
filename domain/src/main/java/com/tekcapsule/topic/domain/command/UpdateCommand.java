@@ -1,10 +1,8 @@
 package com.tekcapsule.topic.domain.command;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.tekcapsule.core.domain.Command;
 import com.tekcapsule.topic.domain.model.*;
-import in.devstream.core.domain.Command;
-import in.devstream.mentor.domain.model.*;
-import in.tekcapsule.capsule.domain.model.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,16 +12,11 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 public class UpdateCommand extends Command {
-    private String tenantId;
-    private String userId;
-    private String headLine;
-    private Contact contact;
-    private String photoUrl;
-    private List<String> tags;
-    List<ProfessionalExperience> professionalExperiences;
-    List<EducationalQualification> educationalQualifications;
-    List<Award> awards;
-    List<Certification> certifications;
-    List<Publication> publications;
-    private Social social;
+    private String name;
+    private String description;
+    private String imageUrl;
+    private List<String> aliases;
+    private List<String> keyHighlights;
+    private List<String> capsules;
+    private Category category;
 }

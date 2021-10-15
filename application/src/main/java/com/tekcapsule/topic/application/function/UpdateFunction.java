@@ -3,11 +3,7 @@ package com.tekcapsule.topic.application.function;
 import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.function.input.UpdateInput;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
-import in.devstream.core.domain.Origin;
-import in.devstream.core.utils.HeaderUtil;
-import in.devstream.mentor.domain.command.UpdateCommand;
-import in.devstream.mentor.domain.model.Mentor;
-import in.devstream.mentor.domain.service.MentorService;
+import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.Message;
@@ -22,12 +18,11 @@ import java.util.function.Function;
 @Slf4j
 public class UpdateFunction implements Function<Message<UpdateInput>, Message<Mentor>> {
 
-    private final MentorService mentorService;
+    private final TopicService topicService;
 
-    public UpdateFunction(final MentorService mentorService) {
-        this.mentorService = mentorService;
+    public UpdateFunction(final TopicService topicService) {
+        this.topicService = topicService;
     }
-
 
     @Override
     public Message<Mentor> apply(Message<UpdateInput> updateInputMessage) {

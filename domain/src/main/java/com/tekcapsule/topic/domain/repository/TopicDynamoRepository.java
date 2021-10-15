@@ -2,7 +2,7 @@ package com.tekcapsule.topic.domain.repository;
 
 import com.tekcapsule.topic.domain.query.SearchItem;
 import in.devstream.core.domain.CrudRepository;
-import com.tekcapsule.topic.domain.model.Mentor;
+import com.tekcapsule.topic.domain.model.Topic;
 
 import java.util.List;
 

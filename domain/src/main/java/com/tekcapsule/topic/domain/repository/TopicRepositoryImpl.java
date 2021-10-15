@@ -3,7 +3,7 @@ package com.tekcapsule.topic.domain.repository;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.tekcapsule.topic.domain.query.SearchItem;
-import com.tekcapsule.topic.domain.model.Mentor;
+import com.tekcapsule.topic.domain.model.Topic;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

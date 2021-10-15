@@ -2,11 +2,7 @@ package com.tekcapsule.topic.application.function;
 
 import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
-import in.devstream.core.domain.Origin;
-import in.devstream.core.utils.HeaderUtil;
-import com.tekcapsule.topic.application.function.input.DisableInput;
-import in.devstream.mentor.domain.command.DisableCommand;
-import in.devstream.mentor.domain.service.MentorService;
+import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.Message;
@@ -20,10 +16,11 @@ import java.util.function.Function;
 @Component
 @Slf4j
 public class DisableFunction implements Function<Message<DisableInput>, Message<Void>> {
-    private final MentorService mentorService;
 
-    public DisableFunction(final MentorService mentorService) {
-        this.mentorService = mentorService;
+    private final TopicService topicService;
+
+    public DisableFunction(final TopicService topicService) {
+        this.topicService = topicService;
     }
 
 

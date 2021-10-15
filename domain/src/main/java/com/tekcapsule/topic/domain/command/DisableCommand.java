@@ -1,7 +1,7 @@
 package com.tekcapsule.topic.domain.command;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import in.devstream.core.domain.Command;
+import com.tekcapsule.core.domain.Command;
 import lombok.Builder;
 import lombok.Data;
 
@@ -9,6 +9,5 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 public class DisableCommand extends Command {
-    private String tenantId;
-    private String userId;
+    private String name;
 }

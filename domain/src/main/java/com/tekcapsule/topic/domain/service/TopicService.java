@@ -5,7 +5,7 @@ import com.tekcapsule.topic.domain.command.DisableCommand;
 import com.tekcapsule.topic.domain.command.UpdateCommand;
 import com.tekcapsule.topic.domain.query.SearchItem;
 import com.tekcapsule.topic.domain.query.SearchQuery;
-import com.tekcapsule.topic.domain.model.Mentor;
+import com.tekcapsule.topic.domain.model.Topic;
 
 import java.util.List;
 
