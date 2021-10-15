@@ -1,6 +1,5 @@
 package com.tekcapsule.topic.application.function;
 
-import com.tekcapsule.topic.application.function.input.SearchInput;
 import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

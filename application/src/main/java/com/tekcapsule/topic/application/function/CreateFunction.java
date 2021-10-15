@@ -1,6 +1,11 @@
 package com.tekcapsule.topic.application.function;
 
+import com.tekcapsule.core.domain.Origin;
+import com.tekcapsule.core.utils.HeaderUtil;
+import com.tekcapsule.topic.application.function.input.CreateInput;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
+import com.tekcapsule.topic.domain.command.CreateCommand;
+import com.tekcapsule.topic.domain.model.Topic;
 import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -14,7 +19,7 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class CreateFunction implements Function<Message<CreateInput>, Message<Mentor>> {
+public class CreateFunction implements Function<Message<CreateInput>, Message<Topic>> {
 
     private final TopicService topicService;
 
@@ -24,19 +29,19 @@ public class CreateFunction implements Function<Message<CreateInput>, Message<Me
 
 
     @Override
-    public Message<Mentor> apply(Message<CreateInput> createInputMessage) {
+    public Message<Topic> apply(Message<CreateInput> createInputMessage) {
 
         CreateInput createInput = createInputMessage.getPayload();
 
-        log.info(String.format("Entering create mentor Function - Tenant Id:{0}, Name:{1}", createInput.getTenantId(), createInput.getName().toString()));
+        log.info(String.format("Entering create topic Function -Name:{1}", createInput.getName().toString()));
 
         Origin origin = HeaderUtil.buildOriginFromHeaders(createInputMessage.getHeaders());
 
         CreateCommand createCommand = InputOutputMapper.buildCreateCommandFromCreateInput.apply(createInput, origin);
-        Mentor mentor = mentorService.create(createCommand);
+        Topic topic = topicService.create(createCommand);
         Map<String, Object> responseHeader = new HashMap();
         responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
 
-        return new GenericMessage(mentor, responseHeader);
+        return new GenericMessage(topic, responseHeader);
     }
 }

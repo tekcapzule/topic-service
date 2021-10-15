@@ -26,35 +26,15 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public Mentor create(CreateCommand createCommand) {
+    public Topic create(CreateCommand createCommand) {
 
         log.info(String.format("Entering create mentor service - Tenant Id:{0}, Name:{1}", createCommand.getTenantId(), createCommand.getName().toString()));
 
-        Name name = createCommand.getName();
-        if (name != null) {
-            name.setDisplayName(String.format("{0} {1}", name.getFirstName(), name.getLastName()));
-        }
-        DateOfBirth dateOfBirth = createCommand.getDateOfBirth();
-        if (dateOfBirth != null) {
-            dateOfBirth.setDateOfBirth(String.format("{0}/{1}/{2}", dateOfBirth.getDay(), dateOfBirth.getMonth(), dateOfBirth.getYear()));
-        }
-        Mentor mentor = Mentor.builder()
+        Topic mentor = Topic.builder()
                 .active(true)
                 .activeSince(DateTime.now(DateTimeZone.UTC).toString())
                 .blocked(false)
                 .awards(createCommand.getAwards())
-                .certifications(createCommand.getCertifications())
-                .contact(createCommand.getContact())
-                .dateOfBirth(dateOfBirth)
-                .educationalQualifications(createCommand.getEducationalQualifications())
-                .headLine(createCommand.getHeadLine())
-                .name(name)
-                .professionalExperiences(createCommand.getProfessionalExperiences())
-                .publications(createCommand.getPublications())
-                .social(createCommand.getSocial())
-                .tags(createCommand.getTags())
-                .tenantId(createCommand.getTenantId())
-                .userId(createCommand.getContact().getEmailId())
                 .build();
 
         mentor.setAddedOn(createCommand.getExecOn());
@@ -65,7 +45,7 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public Mentor update(UpdateCommand updateCommand) {
+    public Topic update(UpdateCommand updateCommand) {
 
         log.info(String.format("Entering update mentor service - Tenant Id:{0}, User Id:{1}", updateCommand.getTenantId(), updateCommand.getUserId()));
 
@@ -73,13 +53,6 @@ public class TopicServiceImpl implements TopicService {
         if (mentor != null) {
             mentor.setAwards(updateCommand.getAwards());
             mentor.setHeadLine(updateCommand.getHeadLine());
-            mentor.setContact(updateCommand.getContact());
-            mentor.setCertifications(updateCommand.getCertifications());
-            mentor.setPhotoUrl(updateCommand.getPhotoUrl());
-            mentor.setTags(updateCommand.getTags());
-            mentor.setSocial(updateCommand.getSocial());
-            mentor.setEducationalQualifications(updateCommand.getEducationalQualifications());
-            mentor.setProfessionalExperiences(updateCommand.getProfessionalExperiences());
             mentor.setPublications(updateCommand.getPublications());
 
             mentor.setUpdatedOn(updateCommand.getExecOn());
@@ -107,7 +80,7 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public Mentor get(String tenantId, String userId) {
+    public Topic get(String tenantId, String userId) {
 
         log.info(String.format("Entering get mentor service - Tenant Id:{0}, User Id:{1}", tenantId, userId));
 

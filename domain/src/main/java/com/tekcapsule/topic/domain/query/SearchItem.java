@@ -1,7 +1,7 @@
 package com.tekcapsule.topic.domain.query;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import in.devstream.core.domain.ValueObject;
+import com.tekcapsule.core.domain.ValueObject;
 import lombok.Builder;
 import lombok.Data;
 

@@ -3,6 +3,7 @@ package com.tekcapsule.topic.application.function;
 import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.function.input.UpdateInput;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
+import com.tekcapsule.topic.domain.model.Topic;
 import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class UpdateFunction implements Function<Message<UpdateInput>, Message<Mentor>> {
+public class UpdateFunction implements Function<Message<UpdateInput>, Message<Topic>> {
 
     private final TopicService topicService;
 

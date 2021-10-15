@@ -11,13 +11,13 @@ import java.util.List;
 
 public interface TopicService {
 
-    Mentor create(CreateCommand createCommand);
+    Topic create(CreateCommand createCommand);
 
-    Mentor update(UpdateCommand updateCommand);
+    Topic update(UpdateCommand updateCommand);
 
     void disable(DisableCommand disableCommand);
 
     List<SearchItem> search(SearchQuery searchQuery);
 
-    Mentor get(String tenantId, String userId);
+    Topic get(String tenantId, String userId);
 }
