@@ -6,12 +6,8 @@ import com.tekcapsule.topic.domain.command.UpdateCommand;
 import com.tekcapsule.topic.domain.repository.TopicDynamoRepository;
 import com.tekcapsule.topic.domain.model.Topic;
 import lombok.extern.slf4j.Slf4j;
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -26,39 +22,32 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public Topic create(CreateCommand createCommand) {
 
-        log.info(String.format("Entering create topic service - Tenant Id:{0}, Name:{1}", createCommand.getTenantId(), createCommand.getName().toString()));
+        log.info(String.format("Entering create topic service - Topic Name :{0}", createCommand.getName()));
 
-        Topic mentor = Topic.builder()
-                .active(true)
-                .activeSince(DateTime.now(DateTimeZone.UTC).toString())
-                .blocked(false)
-                .awards(createCommand.getAwards())
+        Topic topic = Topic.builder()
                 .build();
 
-        mentor.setAddedOn(createCommand.getExecOn());
-        mentor.setUpdatedOn(createCommand.getExecOn());
-        mentor.setAddedBy(createCommand.getExecBy().getUserId());
+        topic.setAddedOn(createCommand.getExecOn());
+        topic.setUpdatedOn(createCommand.getExecOn());
+        topic.setAddedBy(createCommand.getExecBy().getUserId());
 
-        return topicDynamoRepository.save(mentor);
+        return topicDynamoRepository.save(topic);
     }
 
     @Override
     public Topic update(UpdateCommand updateCommand) {
 
-        log.info(String.format("Entering update topic service - Tenant Id:{0}, User Id:{1}", updateCommand.getTenantId(), updateCommand.getUserId()));
+        log.info(String.format("Entering update topic service - Topic Name:{0}", updateCommand.getName()));
 
-        Mentor mentor = mentorRepository.findBy(updateCommand.getTenantId(), updateCommand.getUserId());
-        if (mentor != null) {
-            mentor.setAwards(updateCommand.getAwards());
-            mentor.setHeadLine(updateCommand.getHeadLine());
-            mentor.setPublications(updateCommand.getPublications());
+        Topic topic = topicDynamoRepository.findBy(updateCommand.getName());
+        if (topic != null) {
+            topic.setName(updateCommand.getName());
 
-            mentor.setUpdatedOn(updateCommand.getExecOn());
-            mentor.setUpdatedBy(updateCommand.getExecBy().getUserId());
-
-            topicDynamoRepository.save(mentor);
+            topic.setUpdatedOn(updateCommand.getExecOn());
+            topic.setUpdatedBy(updateCommand.getExecBy().getUserId());
+            topicDynamoRepository.save(topic);
         }
-        return mentor;
+        return topic;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.tekcapsule.topic.application.config;
 
-public final class AppConstants {
-
+public class AppConstants {
     private AppConstants() {
 
     }

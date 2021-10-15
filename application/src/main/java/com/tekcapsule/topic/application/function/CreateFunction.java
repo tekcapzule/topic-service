@@ -2,6 +2,7 @@ package com.tekcapsule.topic.application.function;
 
 import com.tekcapsule.core.domain.Origin;
 import com.tekcapsule.core.utils.HeaderUtil;
+import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.function.input.CreateInput;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
 import com.tekcapsule.topic.domain.command.CreateCommand;
@@ -33,7 +34,7 @@ public class CreateFunction implements Function<Message<CreateInput>, Message<To
 
         CreateInput createInput = createInputMessage.getPayload();
 
-        log.info(String.format("Entering create topic Function -Name:{1}", createInput.getName().toString()));
+        log.info(String.format("Entering create topic Function -Name:{0}", createInput.getName().toString()));
 
         Origin origin = HeaderUtil.buildOriginFromHeaders(createInputMessage.getHeaders());
 

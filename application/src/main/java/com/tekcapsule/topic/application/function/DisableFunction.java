@@ -2,6 +2,7 @@ package com.tekcapsule.topic.application.function;
 
 import com.tekcapsule.core.domain.Origin;
 import com.tekcapsule.core.utils.HeaderUtil;
+import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.function.input.DisableInput;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
 import com.tekcapsule.topic.domain.command.DisableCommand;
@@ -32,7 +33,7 @@ public class DisableFunction implements Function<Message<DisableInput>, Message<
 
         DisableInput disableInput = disableInputMessage.getPayload();
 
-        log.info(String.format("Entering disable mentor Function - Topic Name:{1}", disableInput.getName()));
+        log.info(String.format("Entering disable topic Function - Topic Name:{0}", disableInput.getName()));
 
         Origin origin = HeaderUtil.buildOriginFromHeaders(disableInputMessage.getHeaders());
 

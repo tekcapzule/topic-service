@@ -1,5 +1,6 @@
 package com.tekcapsule.topic.application.function;
 
+import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.function.input.GetInput;
 import com.tekcapsule.topic.domain.model.Topic;
 import com.tekcapsule.topic.domain.service.TopicService;
@@ -28,9 +29,9 @@ public class GetFunction implements Function<Message<GetInput>, Message<Topic>> 
     public Message<Topic> apply(Message<GetInput> getInputMessage) {
         GetInput getInput = getInputMessage.getPayload();
 
-        log.info(String.format("Entering get topic Function -User Id:{1}", getInput.getUserId()));
+        log.info(String.format("Entering get topic Function -User Id:{0}", getInput.getName()));
 
-        Topic topic = topicService.get(getInput.getTenantId(), getInput.getUserId());
+        Topic topic = topicService.get(getInput.getName());
         Map<String, Object> responseHeader = new HashMap();
         if (topic == null) {
             responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.NOT_FOUND.value());

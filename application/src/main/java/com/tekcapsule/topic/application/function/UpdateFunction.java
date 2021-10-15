@@ -1,8 +1,11 @@
 package com.tekcapsule.topic.application.function;
 
+import com.tekcapsule.core.domain.Origin;
+import com.tekcapsule.core.utils.HeaderUtil;
 import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.function.input.UpdateInput;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
+import com.tekcapsule.topic.domain.command.UpdateCommand;
 import com.tekcapsule.topic.domain.model.Topic;
 import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,19 +29,19 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<To
     }
 
     @Override
-    public Message<Mentor> apply(Message<UpdateInput> updateInputMessage) {
+    public Message<Topic> apply(Message<UpdateInput> updateInputMessage) {
         UpdateInput updateInput = updateInputMessage.getPayload();
 
-        log.info(String.format("Entering update mentor Function - Tenant Id:{0}, User Id:{1}", updateInput.getTenantId(), updateInput.getUserId()));
+        log.info(String.format("Entering update topic Function - Topic Name:{0}", updateInput.getName()));
 
         Origin origin = HeaderUtil.buildOriginFromHeaders(updateInputMessage.getHeaders());
 
         UpdateCommand updateCommand = InputOutputMapper.buildUpdateCommandFromUpdateInput.apply(updateInput, origin);
-        Mentor mentor = mentorService.update(updateCommand);
+        Topic topic = topicService.update(updateCommand);
         Map<String, Object> responseHeader = new HashMap();
         responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
 
-        return new GenericMessage(mentor, responseHeader);
+        return new GenericMessage(topic, responseHeader);
 
     }
 }
