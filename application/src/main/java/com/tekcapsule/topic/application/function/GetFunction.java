@@ -29,7 +29,7 @@ public class GetFunction implements Function<Message<GetInput>, Message<Topic>> 
     public Message<Topic> apply(Message<GetInput> getInputMessage) {
         GetInput getInput = getInputMessage.getPayload();
 
-        log.info(String.format("Entering get topic Function -User Id:{0}", getInput.getName()));
+        log.info(String.format("Entering get topic Function -Topic Name:{0}", getInput.getName()));
 
         Topic topic = topicService.get(getInput.getName());
         Map<String, Object> responseHeader = new HashMap();

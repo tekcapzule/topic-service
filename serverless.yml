@@ -17,7 +17,7 @@ provider:
     APPLICATION_ENVIRONMENT: Dev
     CLOUD_REGION: US_East_2
 functions:
-  createMentor:
+  createTopic:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
@@ -25,7 +25,7 @@ functions:
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: createFunction
-  updateMentor:
+  updateTopic:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
@@ -33,7 +33,7 @@ functions:
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: updateFunction
-  disableMentor:
+  disableTopic:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
@@ -41,22 +41,14 @@ functions:
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: disableFunction
-  getMentor:
+  getTopic:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
-          path: topic/searchById
+          path: topic/findById
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: getFunction
-  searchMentor:
-    handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
-    events:
-      - http:
-          path: topic/search
-          method: post
-    environment:
-      SPRING_CLOUD_FUNCTION_DEFINITION: searchFunction
 
 resources:
   Resources:
@@ -65,15 +57,11 @@ resources:
       Properties:
         TableName: Topic
         AttributeDefinitions:
-          - AttributeName: tenantId
-            AttributeType: S
-          - AttributeName: userId
+          - AttributeName: name
             AttributeType: S
         KeySchema:
-          - AttributeName: tenantId
+          - AttributeName: name
             KeyType: HASH
-          - AttributeName: userId
-            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
