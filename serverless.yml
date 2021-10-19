@@ -57,10 +57,10 @@ resources:
       Properties:
         TableName: Topic
         AttributeDefinitions:
-          - AttributeName: name
+          - AttributeName: code
             AttributeType: S
         KeySchema:
-          - AttributeName: name
+          - AttributeName: code
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
