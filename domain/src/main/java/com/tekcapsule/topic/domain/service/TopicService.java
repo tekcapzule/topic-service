@@ -14,5 +14,5 @@ public interface TopicService {
 
     void disable(DisableCommand disableCommand);
 
-    Topic get(String name);
+    Topic get(String code);
 }

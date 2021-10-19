@@ -27,8 +27,8 @@ public class TopicRepositoryImpl implements TopicDynamoRepository {
     }
 
     @Override
-    public Topic findBy( String name) {
-        return dynamo.load(Topic.class, name);
+    public Topic findBy( String code) {
+        return dynamo.load(Topic.class, code);
     }
 
     @Override
@@ -38,8 +38,8 @@ public class TopicRepositoryImpl implements TopicDynamoRepository {
     }
 
     @Override
-    public void disable(String name) {
-        Topic topic = findBy(name);
+    public void disable(String code) {
+        Topic topic = findBy(code);
         if (topic != null) {
             topic.setActive(false);
             dynamo.save(topic);

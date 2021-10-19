@@ -22,7 +22,7 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public Topic create(CreateCommand createCommand) {
 
-        log.info(String.format("Entering create topic service - Topic Name :{0}", createCommand.getName()));
+        log.info(String.format("Entering create topic service - Topic Name :{0}", createCommand.getCode()));
 
         Topic topic = Topic.builder()
                 .build();
@@ -37,7 +37,7 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public Topic update(UpdateCommand updateCommand) {
 
-        log.info(String.format("Entering update topic service - Topic Name:{0}", updateCommand.getName()));
+        log.info(String.format("Entering update topic service - Topic Name:{0}", updateCommand.getCode()));
 
         Topic topic = topicDynamoRepository.findBy(updateCommand.getName());
         if (topic != null) {
@@ -53,16 +53,16 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public void disable(DisableCommand disableCommand) {
 
-        log.info(String.format("Entering disable topic service - Topic Id:{0}", disableCommand.getName()));
+        log.info(String.format("Entering disable topic service - Topic Id:{0}", disableCommand.getCode()));
 
-        topicDynamoRepository.disable(disableCommand.getName());
+        topicDynamoRepository.disable(disableCommand.getCode());
     }
 
     @Override
-    public Topic get(String name) {
+    public Topic get(String code) {
 
-        log.info(String.format("Entering get Topic service - Topic Id:{0}", name));
+        log.info(String.format("Entering get Topic service - Topic Id:{0}", code));
 
-        return topicDynamoRepository.findBy(name);
+        return topicDynamoRepository.findBy(code);
     }
 }
