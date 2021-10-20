@@ -34,8 +34,6 @@ public class Topic extends BaseDomainEntity<String> implements AggregateRoot {
     private List<String> keyHighlights;
     @DynamoDBAttribute(attributeName = "capsules")
     private List<String> capsules;
-    @DynamoDBAttribute(attributeName = "category")
-    private Category category;
     @DynamoDBAttribute(attributeName="active")
     private boolean active;
 

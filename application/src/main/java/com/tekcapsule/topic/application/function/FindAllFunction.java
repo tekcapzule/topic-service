@@ -10,35 +10,28 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 @Component
 @Slf4j
-public class GetFunction implements Function<Message<GetInput>, Message<Topic>> {
+public class FindAllFunction implements Function<Message<GetInput>, Message<Topic>> {
 
     private final TopicService topicService;
 
-    public GetFunction(final TopicService topicService) {
+    public FindAllFunction(final TopicService topicService) {
         this.topicService = topicService;
     }
 
 
     @Override
     public Message<Topic> apply(Message<GetInput> getInputMessage) {
-        GetInput getInput = getInputMessage.getPayload();
 
-        log.info(String.format("Entering get topic Function -Topic Code:{0}", getInput.getCode()));
+        log.info(String.format("Entering find all topics Function"));
 
-        Topic topic = topicService.findBy(getInput.getCode());
+        List<Topic> topics = topicService.findAll();
         Map<String, Object> responseHeader = new HashMap();
-        if (topic == null) {
-            responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.NOT_FOUND.value());
-            topic = Topic.builder().build();
-        } else {
-            responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
-        }
-        return new GenericMessage(topic, responseHeader);
+        responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
+        return new GenericMessage(topics, responseHeader);
     }
 }

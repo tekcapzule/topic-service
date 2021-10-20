@@ -1,7 +1,6 @@
 package com.tekcapsule.topic.application.function.input;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.tekcapsule.topic.domain.model.Category;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,5 +17,4 @@ public class CreateInput {
     private List<String> aliases;
     private List<String> keyHighlights;
     private List<String> capsules;
-    private Category category;
 }

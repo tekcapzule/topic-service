@@ -5,6 +5,8 @@ import com.tekcapsule.topic.domain.command.DisableCommand;
 import com.tekcapsule.topic.domain.command.UpdateCommand;
 import com.tekcapsule.topic.domain.model.Topic;
 
+import java.util.List;
+
 
 public interface TopicService {
 
@@ -14,5 +16,7 @@ public interface TopicService {
 
     void disable(DisableCommand disableCommand);
 
-    Topic get(String code);
+    List<Topic> findAll();
+
+    Topic findBy(String code);
 }

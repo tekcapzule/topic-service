@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class TopicServiceImpl implements TopicService {
@@ -59,10 +61,20 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public Topic get(String code) {
+    public List<Topic> findAll() {
 
-        log.info(String.format("Entering get Topic service - Topic Id:{0}", code));
+        log.info(String.format("Entering findAll Topic service"));
+
+        return topicDynamoRepository.findAll();
+    }
+
+    @Override
+    public Topic findBy(String code) {
+
+        log.info(String.format("Entering findBy Topic service - Topic code:{0}", code));
 
         return topicDynamoRepository.findBy(code);
     }
+
+
 }

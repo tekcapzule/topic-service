@@ -2,7 +2,6 @@ package com.tekcapsule.topic.domain.command;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tekcapsule.core.domain.Command;
-import com.tekcapsule.topic.domain.model.*;
 import lombok.Builder;
 import lombok.Data;
 
@@ -19,5 +18,4 @@ public class UpdateCommand extends Command {
     private List<String> aliases;
     private List<String> keyHighlights;
     private List<String> capsules;
-    private Category category;
 }
