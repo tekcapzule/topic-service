@@ -36,13 +36,4 @@ public class TopicRepositoryImpl implements TopicDynamoRepository {
         dynamo.save(topic);
         return topic;
     }
-
-    @Override
-    public void disable(String code) {
-        Topic topic = findBy(code);
-        if (topic != null) {
-            topic.setActive(false);
-            dynamo.save(topic);
-        }
-    }
 }
