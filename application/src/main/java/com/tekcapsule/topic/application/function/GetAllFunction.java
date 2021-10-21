@@ -15,11 +15,11 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class FindAllFunction implements Function<Message<GetInput>, Message<Topic>> {
+public class GetAllFunction implements Function<Message<GetInput>, Message<Topic>> {
 
     private final TopicService topicService;
 
-    public FindAllFunction(final TopicService topicService) {
+    public GetAllFunction(final TopicService topicService) {
         this.topicService = topicService;
     }
 
@@ -27,7 +27,7 @@ public class FindAllFunction implements Function<Message<GetInput>, Message<Topi
     @Override
     public Message<Topic> apply(Message<GetInput> getInputMessage) {
 
-        log.info(String.format("Entering find all topics Function"));
+        log.info(String.format("Entering get all topics Function"));
 
         List<Topic> topics = topicService.findAll();
         Map<String, Object> responseHeader = new HashMap();

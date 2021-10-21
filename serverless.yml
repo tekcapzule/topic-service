@@ -49,14 +49,14 @@ functions:
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: getFunction
-  findAllTopic:
+  getAllTopics:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
-          path: topic/findAll
+          path: topic/getAll
           method: post
     environment:
-      SPRING_CLOUD_FUNCTION_DEFINITION: findAllFunction
+      SPRING_CLOUD_FUNCTION_DEFINITION: getAllFunction
 
 resources:
   Resources:
@@ -68,12 +68,12 @@ resources:
           - AttributeName: code
             AttributeType: S
           - AttributeName: active
-              AttributeType: B
+            AttributeType: B
         KeySchema:
           - AttributeName: code
             KeyType: HASH
           - AttributeName: active
-              KeyType: RANGE
+            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
