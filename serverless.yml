@@ -45,7 +45,7 @@ functions:
     handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
     events:
       - http:
-          path: topic/findById
+          path: topic/get
           method: post
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: getFunction
