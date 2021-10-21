@@ -2,6 +2,7 @@ package com.tekcapsule.topic.domain.model;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tekcapsule.core.domain.AggregateRoot;
@@ -22,6 +23,8 @@ public class Topic extends BaseDomainEntity<String> implements AggregateRoot {
 
     @DynamoDBHashKey(attributeName="code")
     private String code;
+    @DynamoDBRangeKey(attributeName="active")
+    private boolean active;
     @DynamoDBAttribute(attributeName="name")
     private String name;
     @DynamoDBAttribute(attributeName = "description")
@@ -34,7 +37,5 @@ public class Topic extends BaseDomainEntity<String> implements AggregateRoot {
     private List<String> keyHighlights;
     @DynamoDBAttribute(attributeName = "capsules")
     private List<String> capsules;
-    @DynamoDBAttribute(attributeName="active")
-    private boolean active;
 
 }
