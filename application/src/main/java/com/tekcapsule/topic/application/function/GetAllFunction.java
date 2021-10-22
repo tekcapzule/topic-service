@@ -27,7 +27,7 @@ public class GetAllFunction implements Function<Message<GetInput>, Message<Topic
     @Override
     public Message<Topic> apply(Message<GetInput> getInputMessage) {
 
-        log.info(String.format("Entering get all topics Function"));
+        log.info("Entering get all topics Function");
 
         List<Topic> topics = topicService.findAll();
         Map<String, Object> responseHeader = new HashMap();

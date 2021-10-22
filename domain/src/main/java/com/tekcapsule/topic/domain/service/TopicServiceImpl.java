@@ -24,7 +24,7 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public Topic create(CreateCommand createCommand) {
 
-        log.info(String.format("Entering create topic service - Topic Code :{0}", createCommand.getCode()));
+        log.info(String.format("Entering create topic service - Topic Code :%S", createCommand.getCode()));
 
         Topic topic = Topic.builder()
                 .code(createCommand.getCode())
@@ -47,7 +47,7 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public Topic update(UpdateCommand updateCommand) {
 
-        log.info(String.format("Entering update topic service - Topic Code:{0}", updateCommand.getCode()));
+        log.info(String.format("Entering update topic service - Topic Code:%S", updateCommand.getCode()));
 
         Topic topic = topicDynamoRepository.findBy(updateCommand.getName());
         if (topic != null) {
@@ -67,7 +67,7 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public void disable(DisableCommand disableCommand) {
 
-        log.info(String.format("Entering disable topic service - Topic Code:{0}", disableCommand.getCode()));
+        log.info(String.format("Entering disable topic service - Topic Code:%S", disableCommand.getCode()));
 
         topicDynamoRepository.findBy(disableCommand.getCode());
         Topic topic = topicDynamoRepository.findBy(disableCommand.getCode());
@@ -82,7 +82,7 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public List<Topic> findAll() {
 
-        log.info(String.format("Entering findAll Topic service"));
+        log.info("Entering findAll Topic service");
 
         return topicDynamoRepository.findAll();
     }
@@ -90,7 +90,7 @@ public class TopicServiceImpl implements TopicService {
     @Override
     public Topic findBy(String code) {
 
-        log.info(String.format("Entering findBy Topic service - Topic code:{0}", code));
+        log.info(String.format("Entering findBy Topic service - Topic code:%S", code));
 
         return topicDynamoRepository.findBy(code);
     }

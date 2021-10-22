@@ -60,7 +60,7 @@ functions:
 
 resources:
   Resources:
-    productsTable:
+    topicsTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: Topic
