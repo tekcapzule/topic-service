@@ -38,10 +38,10 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<To
 
         UpdateCommand updateCommand = InputOutputMapper.buildUpdateCommandFromUpdateInput.apply(updateInput, origin);
         Topic topic = topicService.update(updateCommand);
-        Map<String, Object> responseHeader = new HashMap();
+        Map<String, Object> responseHeader = new HashMap<>();
         responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
 
-        return new GenericMessage(topic, responseHeader);
+        return new GenericMessage<>(topic, responseHeader);
 
     }
 }

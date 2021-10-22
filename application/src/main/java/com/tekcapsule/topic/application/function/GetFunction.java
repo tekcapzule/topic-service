@@ -32,13 +32,13 @@ public class GetFunction implements Function<Message<GetInput>, Message<Topic>> 
         log.info(String.format("Entering get topic Function -Topic Code:%S", getInput.getCode()));
 
         Topic topic = topicService.findBy(getInput.getCode());
-        Map<String, Object> responseHeader = new HashMap();
+        Map<String, Object> responseHeader = new HashMap<>();
         if (topic == null) {
             responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.NOT_FOUND.value());
             topic = Topic.builder().build();
         } else {
             responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
         }
-        return new GenericMessage(topic, responseHeader);
+        return new GenericMessage<>(topic, responseHeader);
     }
 }

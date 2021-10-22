@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class GetAllFunction implements Function<Message<GetInput>, Message<Topic>> {
+public class GetAllFunction implements Function<Message<GetInput>, Message<List<Topic>>> {
 
     private final TopicService topicService;
 
@@ -25,13 +25,13 @@ public class GetAllFunction implements Function<Message<GetInput>, Message<Topic
 
 
     @Override
-    public Message<Topic> apply(Message<GetInput> getInputMessage) {
+    public Message<List<Topic>> apply(Message<GetInput> getInputMessage) {
 
         log.info("Entering get all topics Function");
 
         List<Topic> topics = topicService.findAll();
-        Map<String, Object> responseHeader = new HashMap();
+        Map<String, Object> responseHeader = new HashMap<>();
         responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
-        return new GenericMessage(topics, responseHeader);
+        return new GenericMessage<>(topics, responseHeader);
     }
 }
