@@ -22,7 +22,7 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public Topic create(CreateCommand createCommand) {
+    public void create(CreateCommand createCommand) {
 
         log.info(String.format("Entering create topic service - Topic Code :%S", createCommand.getCode()));
 
@@ -41,11 +41,11 @@ public class TopicServiceImpl implements TopicService {
         topic.setUpdatedOn(createCommand.getExecOn());
         topic.setAddedBy(createCommand.getExecBy().getUserId());
 
-        return topicDynamoRepository.save(topic);
+        topicDynamoRepository.save(topic);
     }
 
     @Override
-    public Topic update(UpdateCommand updateCommand) {
+    public void update(UpdateCommand updateCommand) {
 
         log.info(String.format("Entering update topic service - Topic Code:%S", updateCommand.getCode()));
 
@@ -61,7 +61,6 @@ public class TopicServiceImpl implements TopicService {
             topic.setUpdatedBy(updateCommand.getExecBy().getUserId());
             topicDynamoRepository.save(topic);
         }
-        return topic;
     }
 
     @Override

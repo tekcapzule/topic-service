@@ -2,6 +2,7 @@ service: topic-service
 package:
   version: 0.0.1-SNAPSHOT
   artifact: ./application/target/${self:service}-${self:package.version}-${self:provider}.jar
+  excludeDevDependencies: true
 provider:
   name: aws
   runtime: java11
@@ -14,47 +15,82 @@ provider:
         - "dynamodb:*"
       Resource: "*"
   environment:
-    APPLICATION_ENVIRONMENT: Dev
+    APPLICATION_ENVIRONMENT: ${opt:stage}
     CLOUD_REGION: US_East_2
 functions:
   createTopic:
-    handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
+    handler: org.springframework.cloud.function.adapter.aws.SpringBootApiGatewayRequestHandler
     events:
       - http:
           path: topic/create
           method: post
+          cors: true
+          request:
+            schemas:
+              application/json:
+                schema: ${file(api-gateway/create.json)}
+                name: CreateTopicModel
+                description: 'create topic model'
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: createFunction
   updateTopic:
-    handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
+    handler: org.springframework.cloud.function.adapter.aws.SpringBootApiGatewayRequestHandler
     events:
       - http:
           path: topic/update
           method: post
+          cors: true
+          request:
+            schemas:
+              application/json:
+                schema: ${file(api-gateway/update.json)}
+                name: UpdateTopicModel
+                description: 'update topic model'
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: updateFunction
   disableTopic:
-    handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
+    handler: org.springframework.cloud.function.adapter.aws.SpringBootApiGatewayRequestHandler
     events:
       - http:
           path: topic/disable
           method: post
+          cors: true
+          request:
+            schemas:
+              application/json:
+                schema: ${file(api-gateway/disable.json)}
+                name: DisableTopicModel
+                description: 'disable topic model'
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: disableFunction
   getTopic:
-    handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
+    handler: org.springframework.cloud.function.adapter.aws.SpringBootApiGatewayRequestHandler
     events:
       - http:
           path: topic/get
           method: post
+          cors: true
+          request:
+            schemas:
+              application/json:
+                schema: ${file(api-gateway/get.json)}
+                name: GetTopicModel
+                description: 'get topic model'
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: getFunction
   getAllTopics:
-    handler: org.springframework.cloud.function.adapter.aws.SpringBootStreamHandler
+    handler: org.springframework.cloud.function.adapter.aws.SpringBootApiGatewayRequestHandler
     events:
       - http:
           path: topic/getAll
           method: post
+          cors: true
+          request:
+            schemas:
+              application/json:
+                schema: ${file(api-gateway/getAll.json)}
+                name: GetAllTopicsModel
+                description: 'get all topics model'
     environment:
       SPRING_CLOUD_FUNCTION_DEFINITION: getAllFunction
 
@@ -68,7 +104,7 @@ resources:
           - AttributeName: code
             AttributeType: S
           - AttributeName: active
-            AttributeType: B
+            AttributeType: BOOL
         KeySchema:
           - AttributeName: code
             KeyType: HASH

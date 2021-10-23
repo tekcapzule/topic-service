@@ -19,7 +19,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Topic extends BaseDomainEntity<String> implements AggregateRoot {
+public class Topic extends BaseDomainEntity implements AggregateRoot {
 
     @DynamoDBHashKey(attributeName="code")
     private String code;

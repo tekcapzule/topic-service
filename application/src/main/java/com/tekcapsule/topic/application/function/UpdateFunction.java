@@ -6,7 +6,6 @@ import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.function.input.UpdateInput;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
 import com.tekcapsule.topic.domain.command.UpdateCommand;
-import com.tekcapsule.topic.domain.model.Topic;
 import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,7 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class UpdateFunction implements Function<Message<UpdateInput>, Message<Topic>> {
+public class UpdateFunction implements Function<Message<UpdateInput>, Message<Void>> {
 
     private final TopicService topicService;
 
@@ -29,7 +28,7 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<To
     }
 
     @Override
-    public Message<Topic> apply(Message<UpdateInput> updateInputMessage) {
+    public Message<Void> apply(Message<UpdateInput> updateInputMessage) {
         UpdateInput updateInput = updateInputMessage.getPayload();
 
         log.info(String.format("Entering update topic Function - Topic Code:%S", updateInput.getName()));
@@ -37,11 +36,11 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<To
         Origin origin = HeaderUtil.buildOriginFromHeaders(updateInputMessage.getHeaders());
 
         UpdateCommand updateCommand = InputOutputMapper.buildUpdateCommandFromUpdateInput.apply(updateInput, origin);
-        Topic topic = topicService.update(updateCommand);
+        topicService.update(updateCommand);
         Map<String, Object> responseHeader = new HashMap<>();
         responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
 
-        return new GenericMessage<>(topic, responseHeader);
+        return new GenericMessage( responseHeader);
 
     }
 }

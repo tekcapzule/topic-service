@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface TopicService {
 
-    Topic create(CreateCommand createCommand);
+    void create(CreateCommand createCommand);
 
-    Topic update(UpdateCommand updateCommand);
+    void update(UpdateCommand updateCommand);
 
     void disable(DisableCommand disableCommand);
 

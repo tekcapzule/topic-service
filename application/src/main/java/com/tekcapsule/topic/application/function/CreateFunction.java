@@ -6,7 +6,6 @@ import com.tekcapsule.topic.application.config.AppConstants;
 import com.tekcapsule.topic.application.function.input.CreateInput;
 import com.tekcapsule.topic.application.mapper.InputOutputMapper;
 import com.tekcapsule.topic.domain.command.CreateCommand;
-import com.tekcapsule.topic.domain.model.Topic;
 import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,7 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class CreateFunction implements Function<Message<CreateInput>, Message<Topic>> {
+public class CreateFunction implements Function<Message<CreateInput>, Message<Void>> {
 
     private final TopicService topicService;
 
@@ -30,7 +29,7 @@ public class CreateFunction implements Function<Message<CreateInput>, Message<To
 
 
     @Override
-    public Message<Topic> apply(Message<CreateInput> createInputMessage) {
+    public Message<Void> apply(Message<CreateInput> createInputMessage) {
 
         CreateInput createInput = createInputMessage.getPayload();
 
@@ -39,10 +38,10 @@ public class CreateFunction implements Function<Message<CreateInput>, Message<To
         Origin origin = HeaderUtil.buildOriginFromHeaders(createInputMessage.getHeaders());
 
         CreateCommand createCommand = InputOutputMapper.buildCreateCommandFromCreateInput.apply(createInput, origin);
-        Topic topic = topicService.create(createCommand);
+        topicService.create(createCommand);
         Map<String, Object> responseHeader = new HashMap<>();
         responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
 
-        return new GenericMessage<>(topic, responseHeader);
+        return new GenericMessage( responseHeader);
     }
 }
