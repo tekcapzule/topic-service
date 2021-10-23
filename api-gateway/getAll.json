@@ -1,18 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "FollowUserModel",
+  "title": "GetAllTopicsModel",
   "type": "object",
-  "required": [
-    "userId",
-    "topicCode"
-  ],
   "properties": {
-    "userId": {
-      "type": "string"
-    },
-    "topicCode": {
-      "type": "string"
-    }
   }
 }
-

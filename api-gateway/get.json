@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "GetUserModel",
+  "title": "GetTopicModel",
   "type": "object",
   "required": [
-    "userId"
+    "code"
   ],
   "properties": {
-    "userId": {
+    "code": {
       "type": "string"
     }
   }

@@ -1,37 +1,46 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "CreateUserModel",
+  "title": "CreateTopicModel",
   "type": "object",
   "required": [
-    "userId",
-    "firstName",
-    "lastName",
-    "subscribedTopics",
-    "emailId",
-    "contactNumber"
+    "code",
+    "name",
+    "description",
+    "imageUrl",
+    "aliases",
+    "keyHighlights",
+    "capsules"
   ],
   "properties": {
-    "userId": {
+    "code": {
       "type": "string"
     },
-    "firstName": {
+    "name": {
       "type": "string"
     },
-    "lastName": {
+    "description": {
       "type": "string"
     },
-    "subscribedTopics": {
+    "imageUrl": {
+      "type": "string"
+    },
+    "aliases": {
       "type": "array",
       "items": {
         "type": "string"
       }
     },
-    "emailId": {
-      "type": "string"
+    "keyHighlights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
-    "contactNumber": {
-      "type": "string"
+    "capsules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   }
 }
-
