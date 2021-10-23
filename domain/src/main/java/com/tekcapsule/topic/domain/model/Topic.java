@@ -23,8 +23,8 @@ public class Topic extends BaseDomainEntity implements AggregateRoot {
 
     @DynamoDBHashKey(attributeName="code")
     private String code;
-    @DynamoDBRangeKey(attributeName="active")
-    private boolean active;
+    @DynamoDBRangeKey(attributeName="status")
+    private String status;
     @DynamoDBAttribute(attributeName="name")
     private String name;
     @DynamoDBAttribute(attributeName = "description")

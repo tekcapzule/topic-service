@@ -104,7 +104,7 @@ resources:
           - AttributeName: code
             AttributeType: S
           - AttributeName: active
-            AttributeType: BOOL
+            AttributeType: S
         KeySchema:
           - AttributeName: code
             KeyType: HASH

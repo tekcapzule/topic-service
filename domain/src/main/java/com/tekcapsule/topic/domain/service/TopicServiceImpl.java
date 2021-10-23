@@ -33,7 +33,7 @@ public class TopicServiceImpl implements TopicService {
                 .imageUrl(createCommand.getImageUrl())
                 .capsules(createCommand.getCapsules())
                 .keyHighlights(createCommand.getKeyHighlights())
-                .active(true)
+                .status("ACTIVE")
                 .aliases(createCommand.getAliases())
                 .build();
 
@@ -71,7 +71,7 @@ public class TopicServiceImpl implements TopicService {
         topicDynamoRepository.findBy(disableCommand.getCode());
         Topic topic = topicDynamoRepository.findBy(disableCommand.getCode());
         if (topic != null) {
-            topic.setActive(false);
+            topic.setStatus("INACTIVE");
             topic.setUpdatedOn(disableCommand.getExecOn());
             topic.setUpdatedBy(disableCommand.getExecBy().getUserId());
             topicDynamoRepository.save(topic);
