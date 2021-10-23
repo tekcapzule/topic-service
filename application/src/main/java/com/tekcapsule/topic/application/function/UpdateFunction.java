@@ -31,7 +31,7 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<Vo
     public Message<Void> apply(Message<UpdateInput> updateInputMessage) {
         UpdateInput updateInput = updateInputMessage.getPayload();
 
-        log.info(String.format("Entering update topic Function - Topic Code:%S", updateInput.getName()));
+        log.info(String.format("Entering update topic Function - Topic Code:%s", updateInput.getName()));
 
         Origin origin = HeaderUtil.buildOriginFromHeaders(updateInputMessage.getHeaders());
 
