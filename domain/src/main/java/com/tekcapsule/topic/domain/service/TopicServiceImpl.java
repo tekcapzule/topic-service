@@ -52,6 +52,7 @@ public class TopicServiceImpl implements TopicService {
         Topic topic = topicDynamoRepository.findBy(updateCommand.getName());
         if (topic != null) {
             topic.setName(updateCommand.getName());
+            topic.setStatus("ACTIVE");
             topic.setAliases(updateCommand.getAliases());
             topic.setCapsules(updateCommand.getCapsules());
             topic.setImageUrl(updateCommand.getImageUrl());

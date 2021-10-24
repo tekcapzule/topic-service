@@ -23,8 +23,6 @@ public class Topic extends BaseDomainEntity implements AggregateRoot {
 
     @DynamoDBHashKey(attributeName="code")
     private String code;
-    @DynamoDBRangeKey(attributeName="status")
-    private String status;
     @DynamoDBAttribute(attributeName="name")
     private String name;
     @DynamoDBAttribute(attributeName = "description")
@@ -37,5 +35,6 @@ public class Topic extends BaseDomainEntity implements AggregateRoot {
     private List<String> keyHighlights;
     @DynamoDBAttribute(attributeName = "capsules")
     private List<String> capsules;
-
+    @DynamoDBAttribute(attributeName="status")
+    private String status;
 }
