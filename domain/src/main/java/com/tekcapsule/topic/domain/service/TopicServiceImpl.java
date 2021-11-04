@@ -49,7 +49,7 @@ public class TopicServiceImpl implements TopicService {
 
         log.info(String.format("Entering update topic service - Topic Code:%s", updateCommand.getCode()));
 
-        Topic topic = topicDynamoRepository.findBy(updateCommand.getName());
+        Topic topic = topicDynamoRepository.findBy(updateCommand.getCode());
         if (topic != null) {
             topic.setName(updateCommand.getName());
             topic.setStatus("ACTIVE");
