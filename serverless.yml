@@ -99,7 +99,7 @@ resources:
     topicsTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: Topic
+        TableName: ${opt:stage}Topic
         AttributeDefinitions:
           - AttributeName: code
             AttributeType: S
