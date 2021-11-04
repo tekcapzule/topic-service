@@ -24,6 +24,7 @@ functions:
       - http:
           path: topic/create
           method: post
+          async: true
           cors: true
           request:
             schemas:
@@ -39,6 +40,7 @@ functions:
       - http:
           path: topic/update
           method: post
+          async: true
           cors: true
           request:
             schemas:
@@ -55,6 +57,7 @@ functions:
           path: topic/disable
           method: post
           cors: true
+          async: true
           request:
             schemas:
               application/json:
