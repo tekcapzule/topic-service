@@ -1,5 +1,6 @@
 package com.tekcapsule.topic.application.function;
 
+import com.tekcapsule.core.domain.EmptyFunctionInput;
 import com.tekcapsule.core.utils.HeaderUtil;
 import com.tekcapsule.core.utils.Outcome;
 import com.tekcapsule.core.utils.Stage;
@@ -17,7 +18,7 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class GetAllFunction implements Function<Message<GetInput>, Message<List<Topic>>> {
+public class GetAllFunction implements Function<Message<EmptyFunctionInput>, Message<List<Topic>>> {
 
     private final TopicService topicService;
 
@@ -30,7 +31,7 @@ public class GetAllFunction implements Function<Message<GetInput>, Message<List<
 
 
     @Override
-    public Message<List<Topic>> apply(Message<GetInput> getInputMessage) {
+    public Message<List<Topic>> apply(Message<EmptyFunctionInput> getAllInputMessage) {
 
         Map<String, Object> responseHeaders = new HashMap<>();
         List<Topic> topics = new ArrayList<>();
