@@ -40,6 +40,11 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<Vo
         Map<String, Object> responseHeader = new HashMap<>();
         responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
 
+        responseHeader.put(AppConstants.ACCESS_CONTROL_ALLOW_CREDENTIALS, AppConstants.ALLOW_CREDENTIALS);
+        responseHeader.put(AppConstants.ACCESS_CONTROL_ALLOW_HEADERS, AppConstants.ALLOW_HEADERS);
+        responseHeader.put(AppConstants.ACCESS_CONTROL_ALLOW_METHODS, AppConstants.ALLOW_METHODS);
+        responseHeader.put(AppConstants.ACCESS_CONTROL_ALLOW_ORIGIN, AppConstants.ALLOW_ORIGIN);
+
         return new GenericMessage( responseHeader);
 
     }
