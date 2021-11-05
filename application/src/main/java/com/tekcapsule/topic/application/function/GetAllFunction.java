@@ -1,12 +1,13 @@
 package com.tekcapsule.topic.application.function;
 
 import com.tekcapsule.core.utils.HeaderUtil;
-import com.tekcapsule.topic.application.config.AppConstants;
+import com.tekcapsule.core.utils.Outcome;
+import com.tekcapsule.core.utils.Stage;
+import com.tekcapsule.topic.application.config.AppConfig;
 import com.tekcapsule.topic.application.function.input.GetInput;
 import com.tekcapsule.topic.domain.model.Topic;
 import com.tekcapsule.topic.domain.service.TopicService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Component;
@@ -20,20 +21,28 @@ public class GetAllFunction implements Function<Message<GetInput>, Message<List<
 
     private final TopicService topicService;
 
-    public GetAllFunction(final TopicService topicService) {
+    private final AppConfig appConfig;
+
+    public GetAllFunction(final TopicService topicService, final AppConfig appConfig) {
         this.topicService = topicService;
+        this.appConfig = appConfig;
     }
 
 
     @Override
     public Message<List<Topic>> apply(Message<GetInput> getInputMessage) {
 
-        log.info("Entering get all topics Function");
-
-        List<Topic> topics = topicService.findAll();
-        Map<String, Object> responseHeader = new HashMap<>();
-        responseHeader.put(AppConstants.HTTP_STATUS_CODE_HEADER, HttpStatus.OK.value());
-        responseHeader = HeaderUtil.populateCorsHeaders(responseHeader);
-        return new GenericMessage<>(topics, responseHeader);
+        Map<String, Object> responseHeaders = new HashMap<>();
+        List<Topic> topics = new ArrayList<>();
+        String stage = appConfig.getStage().toUpperCase();
+        try {
+            log.info("Entering get all topics Function");
+            topics = topicService.findAll();
+            responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.SUCCESS);
+        } catch (Exception ex) {
+            log.error(ex.getMessage());
+            responseHeaders = HeaderUtil.populateResponseHeaders(responseHeaders, Stage.valueOf(stage), Outcome.ERROR);
+        }
+        return new GenericMessage<>(topics, responseHeaders);
     }
 }
