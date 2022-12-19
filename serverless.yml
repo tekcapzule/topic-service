@@ -131,6 +131,27 @@ functions:
       SPRING_CLOUD_FUNCTION_DEFINITION: getAllFunction
 
 resources:
+  extensions:
+    CreateTopicLambdaFunction:
+      Properties:
+        SnapStart:
+          ApplyOn: PublishedVersions
+    UpdateTopicLambdaFunction:
+      Properties:
+        SnapStart:
+          ApplyOn: PublishedVersions
+    DisableTopicLambdaFunction:
+      Properties:
+        SnapStart:
+          ApplyOn: PublishedVersions
+    GetTopicLambdaFunction:
+      Properties:
+        SnapStart:
+          ApplyOn: PublishedVersions
+    GetAllTopicsLambdaFunction:
+      Properties:
+        SnapStart:
+          ApplyOn: PublishedVersions
   Resources:
     topicsTable:
       Type: AWS::DynamoDB::Table
