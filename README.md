@@ -1,10 +1,6 @@
 <!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![GNU License][license-shield]][license-url]
-[![Workflow] [workflow-shield]] [workflow-url]
+
+[![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
 <!-- PROJECT LOGO -->
 
 <div align="center">
@@ -150,22 +146,7 @@ Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE.txt` for more inf
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/tekcapsule/topic-service/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/tekcapsule/topic-service/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/tekcapsule/topic-service/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/tekcapsule/issues
-[license-shield]: https://img.shields.io/badge/License-GPLv3-blue.svg
-[license-url]: https://www.gnu.org/licenses/gpl-3.0
-
-[workflow-shield]: https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg
-[workflow-url]: https://github.com/tekcapsule/topic-service/actions
-
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
