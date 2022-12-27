@@ -1,6 +1,12 @@
 <!-- PROJECT SHIELDS -->
 
 [![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
+[![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
+[![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
+[![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
+[![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
+[![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
+
 <!-- PROJECT LOGO -->
 
 <div align="center">
