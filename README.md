@@ -3,8 +3,8 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
+[![GNU License][license-shield]][license-url]
+[![Workflow] [workflow-shield]] [workflow-url]
 <!-- PROJECT LOGO -->
 
 <div align="center">
@@ -125,7 +125,7 @@ See the [open issues](https://github.com/tekcapsule/topic-service/issues) for a 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
-## Contributing
+## How to Contribute?
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -138,6 +138,9 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/NewFeature`)
 5. Open a Pull Request
 
+## Contributors
+<img src= "https://contrib.rocks/image?repo=tekcapsule/topic-service">
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
@@ -146,7 +149,6 @@ Don't forget to give the project a star! Thanks again!
 Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -158,8 +160,13 @@ Distributed under the GNU GENERAL PUBLIC LICENSE. See `LICENSE.txt` for more inf
 [stars-url]: https://github.com/tekcapsule/topic-service/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/tekcapsule/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/tekcapsule/topic-service/blob/main/LICENSE.txt
+[license-shield]: https://img.shields.io/badge/License-GPLv3-blue.svg
+[license-url]: https://www.gnu.org/licenses/gpl-3.0
+
+[workflow-shield]: https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg
+[workflow-url]: https://github.com/tekcapsule/topic-service/actions
+
+
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
