@@ -8,8 +8,6 @@
 
 <!-- PROJECT LOGO -->
 
-<br />
-
 <div align="center">
   <h3 align="center">Topic Service</h3>
   <p align="center">
