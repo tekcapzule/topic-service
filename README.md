@@ -1,4 +1,5 @@
 <!-- PROJECT SHIELDS -->
+<div align="center">
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
@@ -7,10 +8,12 @@
 [![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=code_smells)](https://sonarcloud.io/component_measures/metric/code_smell/list?id=tekcapsule_topic-service)
 [![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=ncloc)](https://sonarcloud.io/component_measures/metric/code_smell/list?id=judebantony_cicd-github-action-example)
 
-
+</div>
 <!-- PROJECT LOGO -->
 
+
 <div align="center">
+  <img src="https://user-images.githubusercontent.com/9839481/209770761-99fd940f-3c75-407b-a339-9fd2cd2c5b7f.svg">
   <h3 align="center">Topic Service</h3>
   <p align="center">
     A set of lambda functions to manage topics in TekCapsule
