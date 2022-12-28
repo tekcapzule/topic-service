@@ -79,28 +79,28 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
+* SAM
+  Install SAM CLI by following instructions https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
+* JAVA 11
+* Maven 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get the AWS Access Key details
 2. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+3. Install SAM CLI
+4. Configure the following Environment variables
+* APPLICATION_ENVIRONMENT=<Environment_Name>
+* CLOUD_REGION=<Region_Name>
+* secrets.AWS_ACCESS_KEY_ID=<Access_KEY_ID>
+* secrets.AWS_SECRET_ACCESS_KEY=<Access_KEY_Value>
+5. Copy the settings.xml to C:\Users\<User>/.m2
+6. Run the command
+   sam build
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
