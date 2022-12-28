@@ -73,35 +73,40 @@ This project contains set of functions written in Java 11 to create, update, que
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Please follow the below instructions to setup the project locally.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* SAM
-  Install SAM CLI by following instructions https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
+This project requires following softwares: 
+* SAM  
 * JAVA 11
 * Maven 
+
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
+Please follow the step by step instructions to install the required softwares and setup the project.
 1. Get the AWS Access Key details
 2. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-3. Install SAM CLI
+3. Install SAM CLI by following instructions https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
 4. Configure the following Environment variables
 * APPLICATION_ENVIRONMENT=<Environment_Name>
 * CLOUD_REGION=<Region_Name>
 * secrets.AWS_ACCESS_KEY_ID=<Access_KEY_ID>
 * secrets.AWS_SECRET_ACCESS_KEY=<Access_KEY_Value>
-5. Copy the settings.xml to C:\Users\<User>/.m2
-6. Run the command
-   sam build
+* secrets.SERVER_PASSWORD=<SERVER_PASSWORD>
+* secrets.SERVER_USERNAME=<SERVER_USERNAME>
 
+Note: SERVER_USERNAME and SERVER_PASSWORD details will be be provided by Admin.
+
+5. Copy the settings.xml to C:/Users/<User_Name>/.m2
+6. Run the command
+   ```sh
+   sam build
+   ```
+   
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
