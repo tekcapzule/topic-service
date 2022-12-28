@@ -6,7 +6,6 @@
 [![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=vulnerabilities)](https://sonarcloud.io/component_measures/metric/security_rating/list?id=tekcapsule_topic-service)
 [![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=code_smells)](https://sonarcloud.io/component_measures/metric/code_smell/list?id=tekcapsule_topic-service)
 [![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=ncloc)](https://sonarcloud.io/component_measures/metric/code_smell/list?id=judebantony_cicd-github-action-example)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=389065421&machine=standardLinux32gb&location=SouthEastAsia)
 
 
 <!-- PROJECT LOGO -->
@@ -21,8 +20,11 @@
     <a href="https://github.com/tekcapsule/topic-service/issues">Request Feature</a>
   </p>
 </div>
+<div align="center">
+  
+  <a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=389065421&machine=standardLinux32gb&location=SouthEastAsia">![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)</a>
 
-
+</div>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -66,7 +68,6 @@ Use the `BLANK_README.md` to get started.
 ![topic-service](https://user-images.githubusercontent.com/9839481/209629447-76ae3d14-752a-4b6f-b00c-85028fdb2095.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
