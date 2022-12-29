@@ -6,6 +6,8 @@
 [![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
 [![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
 [![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
+[![Github all releases](https://img.shields.io/github/downloads/tekcapsule/topic-service/total.svg)](https://GitHub.com/tekcapsule/topic-service/releases/)
+
 
 <!-- PROJECT LOGO -->
 
