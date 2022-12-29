@@ -99,9 +99,9 @@ Please follow the step by step instructions to install the required softwares an
 * secrets.SERVER_PASSWORD=<SERVER_PASSWORD>
 * secrets.SERVER_USERNAME=<SERVER_USERNAME>
 
-Note: SERVER_USERNAME and SERVER_PASSWORD details will be be provided by Admin.
+Note: SERVER_USERNAME and SERVER_PASSWORD details will be be provided by the maintainers on request.
 
-5. Copy the settings.xml to C:/Users/<User_Name>/.m2
+5. Copy the settings.xml to ~/.m2
 6. Run the command
    ```sh
    sam build
