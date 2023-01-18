@@ -29,6 +29,7 @@ public class TopicServiceImpl implements TopicService {
         Topic topic = Topic.builder()
                 .code(createCommand.getCode())
                 .name(createCommand.getName())
+                .summary(createCommand.getSummary())
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
                 .capsules(createCommand.getCapsules())
@@ -54,6 +55,7 @@ public class TopicServiceImpl implements TopicService {
         if (topic != null) {
             topic.setName(updateCommand.getName());
             topic.setStatus("ACTIVE");
+            topic.setSummary(updateCommand.getSummary());
             topic.setCategory(updateCommand.getCategory());
             topic.setAliases(updateCommand.getAliases());
             topic.setCapsules(updateCommand.getCapsules());

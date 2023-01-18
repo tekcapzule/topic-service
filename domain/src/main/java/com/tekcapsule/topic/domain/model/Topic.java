@@ -24,6 +24,8 @@ public class Topic extends BaseDomainEntity implements AggregateRoot {
     private String name;
     @DynamoDBTypeConvertedEnum
     private Category category;
+    @DynamoDBAttribute(attributeName = "summary")
+    private String summary;
     @DynamoDBAttribute(attributeName = "description")
     private String description;
     @DynamoDBAttribute(attributeName = "imageUrl")

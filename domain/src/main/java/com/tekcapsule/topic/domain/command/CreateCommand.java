@@ -14,6 +14,7 @@ import java.util.List;
 public class CreateCommand extends Command {
     private String code;
     private String name;
+    private String summary;
     private Category category;
     private String description;
     private String imageUrl;
