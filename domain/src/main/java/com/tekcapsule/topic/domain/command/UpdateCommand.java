@@ -14,10 +14,9 @@ import java.util.List;
 public class UpdateCommand extends Command {
     private String code;
     private String name;
+    private String summary;
     private Category category;
     private String description;
     private String imageUrl;
     private List<String> aliases;
-    private List<String> keyHighlights;
-    private List<String> capsules;
 }

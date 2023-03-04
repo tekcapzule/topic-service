@@ -1,14 +1,14 @@
 <!-- PROJECT SHIELDS -->
-<div align="center">
-
+<a name="readme-top"></a>
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Main Branch](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml/badge.svg)](https://github.com/tekcapsule/topic-service/actions/workflows/cicd.yml) 
-[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=bugs)](https://sonarcloud.io/component_measures/metric/reliability_rating/list?id=tekcapsule_topic-service)
-[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=vulnerabilities)](https://sonarcloud.io/component_measures/metric/security_rating/list?id=tekcapsule_topic-service)
-[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=code_smells)](https://sonarcloud.io/component_measures/metric/code_smell/list?id=tekcapsule_topic-service)
-[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=ncloc)](https://sonarcloud.io/component_measures/metric/code_smell/list?id=judebantony_cicd-github-action-example)
+[![SonarCloud Bugs](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=bugs)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
+[![SonarCloud Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=vulnerabilities)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
+[![SonarCloud Code Smell](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=code_smells)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
+[![SonarCloud Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=tekcapsule_topic-service&metric=ncloc)](https://sonarcloud.io/project/overview?id=tekcapsule_topic-service)
+[![Github all releases](https://img.shields.io/github/downloads/tekcapsule/topic-service/total.svg)](https://GitHub.com/tekcapsule/topic-service/releases/)
 
-</div>
+
 <!-- PROJECT LOGO -->
 
 <div align="center">
@@ -88,7 +88,7 @@ Please follow the step by step instructions to install the required softwares an
 1. Get the AWS Access Key details
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/tekcapsule/topic-service.git
    ```
 3. Install SAM CLI by following instructions https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
 4. Configure the following Environment variables
@@ -99,11 +99,12 @@ Please follow the step by step instructions to install the required softwares an
 * secrets.SERVER_PASSWORD=<SERVER_PASSWORD>
 * secrets.SERVER_USERNAME=<SERVER_USERNAME>
 
-Note: SERVER_USERNAME and SERVER_PASSWORD details will be be provided by Admin.
+Note: SERVER_USERNAME and SERVER_PASSWORD details will be be provided by the maintainers on request.
 
-5. Copy the settings.xml to C:/Users/<User_Name>/.m2
+5. Copy the settings.xml to ~/.m2
 6. Run the command
    ```sh
+   mvn build
    sam build
    ```
    

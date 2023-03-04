@@ -14,9 +14,8 @@ public class CreateInput {
     private String code;
     private String name;
     private Category category;
+    private String summary;
     private String description;
     private String imageUrl;
     private List<String> aliases;
-    private List<String> keyHighlights;
-    private List<String> capsules;
 }

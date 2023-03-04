@@ -14,9 +14,8 @@ public class UpdateInput {
     private String code;
     private Category category;
     private String name;
+    private String summary;
     private String description;
     private String imageUrl;
     private List<String> aliases;
-    private List<String> keyHighlights;
-    private List<String> capsules;
 }
