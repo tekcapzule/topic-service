@@ -19,6 +19,4 @@ public class UpdateCommand extends Command {
     private String description;
     private String imageUrl;
     private List<String> aliases;
-    private List<String> keyHighlights;
-    private List<String> capsules;
 }

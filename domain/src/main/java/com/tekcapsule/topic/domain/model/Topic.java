@@ -32,10 +32,12 @@ public class Topic extends BaseDomainEntity implements AggregateRoot {
     private String imageUrl;
     @DynamoDBAttribute(attributeName = "aliases")
     private List<String> aliases;
-    @DynamoDBAttribute(attributeName = "keyHighlights")
-    private List<String> keyHighlights;
-    @DynamoDBAttribute(attributeName = "capsules")
-    private List<String> capsules;
     @DynamoDBAttribute(attributeName="status")
     private String status;
+    @DynamoDBAttribute(attributeName="didYouKnow")
+    private String didYouKnow;
+    @DynamoDBAttribute(attributeName="wayForward")
+    private String wayForward;
+
+
 }

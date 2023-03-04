@@ -5,7 +5,7 @@
 
     <groupId>com.tekcapsule</groupId>
     <artifactId>topic-application</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
     <name>Topic Application</name>
     <description>Topic Application</description>
