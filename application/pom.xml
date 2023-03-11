@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.tekcapsule</groupId>
     <artifactId>topic-service</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <name>Topic Service</name>
     <description>Topic Service</description>
     <properties>
@@ -54,7 +54,7 @@
         <dependency>
             <groupId>com.tekcapsule</groupId>
             <artifactId>topic-domain</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -117,7 +117,7 @@
         <repository>
             <id>topic</id>
             <name>GitHub TekCapsule Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/tekcapsule/tekcapsule-core</url>
+            <url>https://maven.pkg.github.com/tekcapsule/topic-service</url>
         </repository>
     </distributionManagement>
 </project>
