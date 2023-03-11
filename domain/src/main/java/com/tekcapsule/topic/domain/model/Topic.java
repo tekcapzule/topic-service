@@ -4,7 +4,6 @@ import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tekcapsule.core.domain.AggregateRoot;
 import com.tekcapsule.core.domain.BaseDomainEntity;
-import com.tekcapsule.topic.domain.utils.CategoryConverter;
 import lombok.*;
 
 import java.util.List;
@@ -24,7 +23,6 @@ public class Topic extends BaseDomainEntity implements AggregateRoot {
     @DynamoDBAttribute(attributeName = "name")
     private String name;
     @DynamoDBAttribute(attributeName = "categories")
-    @DynamoDBTypeConverted(converter = CategoryConverter.class)
     private List<Category> categories;
     @DynamoDBAttribute(attributeName = "summary")
     private String summary;
