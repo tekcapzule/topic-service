@@ -13,8 +13,12 @@ import lombok.*;
 @NoArgsConstructor
 @DynamoDBDocument
 public class Category {
+    @DynamoDBAttribute(attributeName ="name")
     private String name;
+    @DynamoDBAttribute(attributeName ="summary")
     private String summary;
+    @DynamoDBAttribute(attributeName ="description")
     private String description;
+    @DynamoDBAttribute(attributeName ="imageURL")
     private String imageURL;
 }
