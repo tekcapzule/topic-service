@@ -32,7 +32,7 @@ public class TopicServiceImpl implements TopicService {
                 .summary(createCommand.getSummary())
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
-                .category(createCommand.getCategory())
+                .categories(createCommand.getCategories())
                 .status("ACTIVE")
                 .aliases(createCommand.getAliases())
                 .build();
@@ -54,7 +54,7 @@ public class TopicServiceImpl implements TopicService {
             topic.setName(updateCommand.getName());
             topic.setStatus("ACTIVE");
             topic.setSummary(updateCommand.getSummary());
-            topic.setCategory(updateCommand.getCategory());
+            topic.setCategories(updateCommand.getCategories());
             topic.setAliases(updateCommand.getAliases());
             topic.setImageUrl(updateCommand.getImageUrl());
             topic.setDescription(updateCommand.getDescription());

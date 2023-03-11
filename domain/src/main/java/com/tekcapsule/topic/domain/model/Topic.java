@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tekcapsule.core.domain.AggregateRoot;
 import com.tekcapsule.core.domain.BaseDomainEntity;
+import com.tekcapsule.topic.domain.utils.CategoryConverter;
 import lombok.*;
 
 import java.util.List;
@@ -18,12 +19,13 @@ import java.util.List;
 @NoArgsConstructor
 public class Topic extends BaseDomainEntity implements AggregateRoot {
 
-    @DynamoDBHashKey(attributeName="code")
+    @DynamoDBHashKey(attributeName = "code")
     private String code;
-    @DynamoDBAttribute(attributeName="name")
+    @DynamoDBAttribute(attributeName = "name")
     private String name;
-    @DynamoDBTypeConvertedEnum
-    private Category category;
+    @DynamoDBAttribute(attributeName = "categories")
+    @DynamoDBTypeConverted(converter = CategoryConverter.class)
+    private List<Category> categories;
     @DynamoDBAttribute(attributeName = "summary")
     private String summary;
     @DynamoDBAttribute(attributeName = "description")
@@ -32,12 +34,6 @@ public class Topic extends BaseDomainEntity implements AggregateRoot {
     private String imageUrl;
     @DynamoDBAttribute(attributeName = "aliases")
     private List<String> aliases;
-    @DynamoDBAttribute(attributeName="status")
+    @DynamoDBAttribute(attributeName = "status")
     private String status;
-    @DynamoDBAttribute(attributeName="didYouKnow")
-    private String didYouKnow;
-    @DynamoDBAttribute(attributeName="wayForward")
-    private String wayForward;
-
-
 }

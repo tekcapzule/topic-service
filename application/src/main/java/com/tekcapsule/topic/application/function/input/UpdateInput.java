@@ -1,7 +1,7 @@
 package com.tekcapsule.topic.application.function.input;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.tekcapsule.topic.domain.model.Category;
+import com.tekcapsule.topic.domain.model.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class UpdateInput {
     private String code;
-    private Category category;
+    private List<Category> categories;
     private String name;
     private String summary;
     private String description;
