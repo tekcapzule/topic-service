@@ -17,5 +17,4 @@ public class UpdateInput {
     private String summary;
     private String description;
     private String imageUrl;
-    private List<String> aliases;
 }

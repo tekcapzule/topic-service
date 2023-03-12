@@ -18,6 +18,5 @@ public class CreateCommand extends Command {
     private List<Category> categories;
     private String description;
     private String imageUrl;
-    private List<String> aliases;
 
 }

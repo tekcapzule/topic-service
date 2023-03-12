@@ -17,8 +17,6 @@ public class Category {
     private String title;
     @DynamoDBAttribute(attributeName ="summary")
     private String summary;
-    @DynamoDBAttribute(attributeName ="description")
-    private String description;
     @DynamoDBAttribute(attributeName ="imageURL")
     private String imageURL;
 }
