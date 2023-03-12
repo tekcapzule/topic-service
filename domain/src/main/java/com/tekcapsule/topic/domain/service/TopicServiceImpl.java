@@ -28,7 +28,7 @@ public class TopicServiceImpl implements TopicService {
 
         Topic topic = Topic.builder()
                 .code(createCommand.getCode())
-                .name(createCommand.getTitle())
+                .title(createCommand.getTitle())
                 .summary(createCommand.getSummary())
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
@@ -50,7 +50,7 @@ public class TopicServiceImpl implements TopicService {
 
         Topic topic = topicDynamoRepository.findBy(updateCommand.getCode());
         if (topic != null) {
-            topic.setName(updateCommand.getTitle());
+            topic.setTitle(updateCommand.getTitle());
             topic.setStatus("ACTIVE");
             topic.setSummary(updateCommand.getSummary());
             topic.setCategories(updateCommand.getCategories());
