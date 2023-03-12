@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CreateInput {
     private String code;
-    private String name;
+    private String title;
     private List<Category> categories;
     private String summary;
     private String description;

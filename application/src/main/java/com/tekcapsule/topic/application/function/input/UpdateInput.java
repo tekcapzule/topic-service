@@ -13,7 +13,7 @@ import java.util.List;
 public class UpdateInput {
     private String code;
     private List<Category> categories;
-    private String name;
+    private String title;
     private String summary;
     private String description;
     private String imageUrl;

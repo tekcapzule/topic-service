@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 public class CreateCommand extends Command {
     private String code;
-    private String name;
+    private String title;
     private String summary;
     private List<Category> categories;
     private String description;
