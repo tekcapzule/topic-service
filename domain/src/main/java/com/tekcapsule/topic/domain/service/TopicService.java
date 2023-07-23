@@ -1,5 +1,6 @@
 package com.tekcapsule.topic.domain.service;
 
+import com.tekcapsule.topic.domain.command.ApproveCommand;
 import com.tekcapsule.topic.domain.command.CreateCommand;
 import com.tekcapsule.topic.domain.command.DisableCommand;
 import com.tekcapsule.topic.domain.command.UpdateCommand;
@@ -19,4 +20,5 @@ public interface TopicService {
     List<Topic> findAll();
 
     Topic findBy(String code);
+    void approve(ApproveCommand approveCommand);
 }
