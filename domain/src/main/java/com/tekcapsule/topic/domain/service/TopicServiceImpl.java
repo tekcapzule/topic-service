@@ -1,8 +1,10 @@
 package com.tekcapsule.topic.domain.service;
 
+import com.tekcapsule.topic.domain.command.ApproveCommand;
 import com.tekcapsule.topic.domain.command.CreateCommand;
 import com.tekcapsule.topic.domain.command.DisableCommand;
 import com.tekcapsule.topic.domain.command.UpdateCommand;
+import com.tekcapsule.topic.domain.model.Status;
 import com.tekcapsule.topic.domain.repository.TopicDynamoRepository;
 import com.tekcapsule.topic.domain.model.Topic;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +35,7 @@ public class TopicServiceImpl implements TopicService {
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
                 .categories(createCommand.getCategories())
-                .status("ACTIVE")
+                .status(Status.ACTIVE)
                 .build();
 
         topic.setAddedOn(createCommand.getExecOn());
@@ -51,7 +53,7 @@ public class TopicServiceImpl implements TopicService {
         Topic topic = topicDynamoRepository.findBy(updateCommand.getCode());
         if (topic != null) {
             topic.setTitle(updateCommand.getTitle());
-            topic.setStatus("ACTIVE");
+            topic.setStatus(Status.ACTIVE);
             topic.setSummary(updateCommand.getSummary());
             topic.setCategories(updateCommand.getCategories());
             topic.setImageUrl(updateCommand.getImageUrl());
@@ -70,9 +72,24 @@ public class TopicServiceImpl implements TopicService {
         topicDynamoRepository.findBy(disableCommand.getCode());
         Topic topic = topicDynamoRepository.findBy(disableCommand.getCode());
         if (topic != null) {
-            topic.setStatus("INACTIVE");
+            topic.setStatus(Status.INACTIVE);
             topic.setUpdatedOn(disableCommand.getExecOn());
             topic.setUpdatedBy(disableCommand.getExecBy().getUserId());
+            topicDynamoRepository.save(topic);
+        }
+    }
+
+    @Override
+    public void approve(ApproveCommand approveCommand) {
+        log.info(String.format("Entering approve topic service -  Topic code:%s", approveCommand.getCode()));
+
+        Topic topic = topicDynamoRepository.findBy(approveCommand.getCode());
+        if (topic != null) {
+            topic.setStatus(Status.ACTIVE);
+
+            topic.setUpdatedOn(approveCommand.getExecOn());
+            topic.setUpdatedBy(approveCommand.getExecBy().getUserId());
+
             topicDynamoRepository.save(topic);
         }
     }

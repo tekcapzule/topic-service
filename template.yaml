@@ -171,6 +171,28 @@ Resources:
             RestApiId:
               Ref: TopicApi
 
+  ApproveTopicFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Stage}-Topic-ApproveTopic"
+      SnapStart:
+        ApplyOn: PublishedVersions
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TopicTable
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: approveFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: topic/approve
+            Method: post
+            RestApiId:
+              Ref: TopicApi
+
+
   # Set Output Variable
 
 Outputs:

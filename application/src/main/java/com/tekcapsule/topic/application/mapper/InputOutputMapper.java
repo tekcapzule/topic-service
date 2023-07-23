@@ -3,9 +3,11 @@ package com.tekcapsule.topic.application.mapper;
 import com.tekcapsule.core.domain.Command;
 import com.tekcapsule.core.domain.ExecBy;
 import com.tekcapsule.core.domain.Origin;
+import com.tekcapsule.topic.application.function.input.ApproveTopicInput;
 import com.tekcapsule.topic.application.function.input.CreateInput;
 import com.tekcapsule.topic.application.function.input.DisableInput;
 import com.tekcapsule.topic.application.function.input.UpdateInput;
+import com.tekcapsule.topic.domain.command.ApproveCommand;
 import com.tekcapsule.topic.domain.command.CreateCommand;
 import com.tekcapsule.topic.domain.command.DisableCommand;
 import com.tekcapsule.topic.domain.command.UpdateCommand;
@@ -43,6 +45,14 @@ public final class InputOutputMapper {
         addOrigin.apply(updateCommand, origin);
         return updateCommand;
     };
+
+    public static final BiFunction<ApproveTopicInput, Origin, ApproveCommand> buildApproveCommandFromApproveInput = (approveInput, origin) -> {
+        ApproveCommand approveCommand =  ApproveCommand.builder().build();
+        BeanUtils.copyProperties(approveInput, approveCommand);
+        addOrigin.apply(approveCommand, origin);
+        return approveCommand;
+    };
+
 
     public static final BiFunction<DisableInput, Origin, DisableCommand> buildDisableCommandFromDisableInput = (disableInput, origin) -> {
         DisableCommand disableCommand =  DisableCommand.builder().build();
