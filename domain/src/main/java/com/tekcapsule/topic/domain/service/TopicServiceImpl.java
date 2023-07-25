@@ -35,7 +35,7 @@ public class TopicServiceImpl implements TopicService {
                 .description(createCommand.getDescription())
                 .imageUrl(createCommand.getImageUrl())
                 .categories(createCommand.getCategories())
-                .status(Status.ACTIVE)
+                .status(Status.SUBMITTED)
                 .build();
 
         topic.setAddedOn(createCommand.getExecOn());
@@ -53,7 +53,6 @@ public class TopicServiceImpl implements TopicService {
         Topic topic = topicDynamoRepository.findBy(updateCommand.getCode());
         if (topic != null) {
             topic.setTitle(updateCommand.getTitle());
-            topic.setStatus(Status.ACTIVE);
             topic.setSummary(updateCommand.getSummary());
             topic.setCategories(updateCommand.getCategories());
             topic.setImageUrl(updateCommand.getImageUrl());
