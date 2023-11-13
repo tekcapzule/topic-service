@@ -27,7 +27,7 @@ Globals:
         TABLE: !Ref TopicTable
         APPLICATION_ENVIRONMENT: !Ref Stage
         CLOUD_REGION: us-east-1
-        MAIN_CLASS: com.tekcapsule.topic.application.TopicApplication
+        MAIN_CLASS: com.tekcapzule.topic.application.TopicApplication
         JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
 
 Resources:
