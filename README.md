@@ -57,8 +57,6 @@
 
 This project contains set of functions written in Java 11 to create, update, query and manage TekCapzule topics. It is a multi-module maven project with two modules named application & domain. Application module is a springboot application that exposes these functions and domain module contains the domain logic.
 
-![topic-service](https://user-images.githubusercontent.com/9839481/209629447-76ae3d14-752a-4b6f-b00c-85028fdb2095.png)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
